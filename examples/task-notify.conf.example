@@ -1,0 +1,7 @@
+# 复制到 ~/.agent-notify/task-notify.conf 并填入你的 key。
+# key 来自: 企业微信群 → 群设置 → 群机器人/消息推送 → Webhook 地址中 key= 后面的部分。
+WECOM_WEBHOOK_KEY=在这里粘贴你的key
+
+# 可选: Codex 用户若原来已配置过 notify 程序且想保留其功能, 填在这里,
+# codex-notify.js 会先转发给它再发企业微信。
+# CODEX_PREVIOUS_NOTIFY=C:\path\to\original-notify.exe

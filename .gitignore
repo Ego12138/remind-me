@@ -1,0 +1,7 @@
+# 密钥配置, 绝不入库
+task-notify.conf
+*.conf
+!examples/*.example
+
+# 运行日志
+*.log

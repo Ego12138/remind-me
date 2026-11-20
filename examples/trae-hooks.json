@@ -1,0 +1,19 @@
+{
+  "description": "回合结束时发企业微信通知（复制本文件内容到项目根目录 .trae/hooks.json 即可生效）",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": null,
+        "hooks": [
+          {
+            "type": "command",
+            "command": "D:/nodejs/node.exe C:/Users/袁梦达/.agent-notify/hook.js",
+            "commandWindows": "D:/nodejs/node.exe C:/Users/袁梦达/.agent-notify/hook.js",
+            "timeout": 15,
+            "statusMessage": "发送企业微信通知"
+          }
+        ]
+      }
+    ]
+  }
+}
