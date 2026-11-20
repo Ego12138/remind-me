@@ -1,4 +1,4 @@
-# task-notify
+# remind-me
 
 AI 编程工具（ZCode / Claude Code / Codex / Cursor / Trae / WorkBuddy 等）的任务状态通知器：**每条回复结束**、**任务完成**或**中途遇到需要你决策的阻塞点**时，自动发一条企业微信群消息，人不在电脑前也不会错过关键节点。
 
