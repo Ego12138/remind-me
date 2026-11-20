@@ -111,6 +111,17 @@ function send(text, key) {
     });
 }
 
+// 直接发送指定文本(已是最终内容,非事件 JSON): 前缀、截断、发送
+async function sendText(text, keyArg) {
+    const key = keyArg || readKey();
+    if (!key) { log('未配置 key，跳过'); return; }
+    text = '💬 ' + String(text).replace(/\s+/g, ' ').trim();
+    const arr = Array.from(text);
+    if (arr.length > 300) text = arr.slice(0, 300).join('') + '…';
+    const resp = await send(text, key);
+    log(`已发送: ${text.slice(0, 80)}... => ${resp}`);
+}
+
 async function processEvent(raw) {
     const key = readKey();
     if (!key) { log('未配置 key，跳过'); return; }
@@ -121,13 +132,7 @@ async function processEvent(raw) {
 
     let text = extractText(input);
     if (!text) text = '有一条新回复，回来看看。';
-    // 折叠空白、按码点截断（约 900 字节内，远低于 2048 上限，且不会切断代理对）
-    text = '💬 ' + text.replace(/\s+/g, ' ').trim();
-    const arr = Array.from(text);
-    if (arr.length > 300) text = arr.slice(0, 300).join('') + '…';
-
-    const resp = await send(text, key);
-    log(`已发送: ${text.slice(0, 80)}... => ${resp}`);
+    await sendText(text, key);
 }
 
 if (require.main === module) {
@@ -138,4 +143,4 @@ if (require.main === module) {
     })().then(() => process.exit(0)).catch(e => { log(`异常: ${e && e.message}`); process.exit(0); });
 }
 
-module.exports = { processEvent, log };
+module.exports = { processEvent, sendText, log };

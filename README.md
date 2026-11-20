@@ -24,6 +24,27 @@ AI 编程工具（ZCode / Claude Code / Codex / Cursor / Trae / WorkBuddy 等）
 - `scripts/notify.sh` — 独立发送脚本，bash + curl 零依赖，任何能跑命令行的 agent 都能调
 - `scripts/codex-notify.js` — Codex 专用转发器（Codex 的 `notify` 只能配一个程序，用它兼顾原有通知）
 
+## 快速安装
+
+### 方式 A：对 AI 说一句话（推荐）
+
+把下面这段话直接发给你的 AI 编程工具（ZCode / Claude Code / Codex / WorkBuddy 均可）：
+
+> 请帮我安装 task-notify 企业微信通知技能：克隆 https://github.com/Ego12138/remind-me 到临时目录，阅读其中的 INSTALL-AI.md 并严格按它执行。如果我没有企业微信机器人 key，先引导我创建后再继续。
+
+AI 会自动完成全部步骤：下载 → 安装内核和技能 → 向你索要 key → 检测你机器上装了哪些工具并自动接入 → 发送测试消息。
+
+### 方式 B：一键脚本（自己跑）
+
+```bash
+git clone https://github.com/Ego12138/remind-me && node remind-me/install.js
+# 已有 key 可免交互: node remind-me/install.js --key <你的key>
+```
+
+### 方式 C：手动安装
+
+见下方「快速开始」和「接入你的 agent 工具」。
+
 ## 快速开始
 
 ### 1. 拿到企业微信机器人 key
